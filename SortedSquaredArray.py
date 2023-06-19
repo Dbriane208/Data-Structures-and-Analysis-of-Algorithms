@@ -1,3 +1,5 @@
+#o(n) sapce and o(n) time complexity
+
 def Sorted_Squared ():
 
     array = [1,2,3,4,5]
