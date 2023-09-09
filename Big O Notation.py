@@ -124,3 +124,58 @@ def example8(strings):
             strings[i] = sorted(strings[i])
     return strings
 
+#9. BIG-O OF O(n log base 2 (n) + m log base 2 (m) + (n+m)k)
+# n represents the first dictionary,m represents the second dictionary and lastly k represents the length of the longest key
+# The total time complexity will be n log base 2 (n) + m log base 2 (m) + (n+m)k
+
+def example9(dict1,dict2):
+    keys1 = sorted(dict1.keys())
+    keys2 = sorted(dict2.keys())
+
+    process = keys1 + keys2
+    results = set()
+
+    while len(process) > 0:
+        element = process.pop(0)
+        results.append(element)
+
+        if len(element) == 1:
+            continue
+        process.append(element[:-1])
+    return results
+
+#10. BIG-O OF O(n^3)
+# The total time  = n * n * n hence a time complexity of O(n^3) 
+
+def example10(nums):
+    sum_to_end = []
+    count = 0
+
+    for i in range(len(nums)):
+        num1 = nums[i]
+        sum_to_end.append(0)
+
+        for j in range(i + 1,len(nums)):
+            num2 = nums[j]
+            sum_to_end[i] += num2
+
+            for _ in sum_to_end:
+                count += 1
+                print(count)
+    return sum_to_end
+
+ans = example10([1,2,3,4,5,6,7])
+print(ans)  
+
+#11. BIG-O OF O(n!)
+# In this function the number of call made will depend on the size of n. The base case of each n wil be
+# given by the permutation of n i.e n! hence the time complexity of O(n!)
+
+def example11(n):
+    if n == 1:
+        return 1
+    total = 0
+    for _ in range(n):
+        total += example11(n-1)
+        return total
+print(example11(2))    
