@@ -4,23 +4,31 @@
 def example0(num):
     return num % 2 == 0
 output = example0(5)
-print(output)
+print(output)     
 
 #1. LINEAR TIME O(n)
 # The total time take by this function is 2n + 1 hence the time complexity of 0(n) 
 # because as the n grows large the constants doesn't matter.
 
+#Example 1
 def example1(nums):
     total = 0
     for number in nums:
         total += number
-    return total    
+    return total
+
+#Example 2
+def print_items(n):
+    for i in range(n):
+        print(i)
+print_items(10)       
  
  
 #2. QUADRATIC NOTATION O(n^2)
 #The total time take by the function is n + 3n^2 + 1
 #The greatest power of the function, n^2, is always the time complexity of the function
 
+#Example 1
 def example2(nums):
     results = [1 for _ in range(len(nums))]
 
@@ -30,6 +38,14 @@ def example2(nums):
               continue
             results[i] *= num2
         return results  
+
+#Example 2
+def print_items(n):
+    for i in range(n):
+        for j in range(n):
+            print(i,j)
+print_items(10)                
+
 
 #3. BIG-O OF O(n+m)
 # The function takes two differents inputs which we will represent as n and m
